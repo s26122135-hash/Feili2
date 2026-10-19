@@ -1,505 +1,88 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>迷幻迷因產生器 - Psychedelic Meme Generator</title>
-
-  <!-- Google Fonts: 導入迷因經典字體 (Impact, Anton) 與 中文字體 (Noto Sans TC, Black Han Sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Impact&family=Noto+Sans+TC:wght@700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN (用於快速建構現代響應式版面) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- html2canvas CDN (將網頁 HTML 區塊轉為圖片下載的核心套件) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-  <style>
-    /* 全局背景與字型設置 */
-    body {
-      font-family: 'Noto Sans TC', sans-serif;
-      background: #090314;
-      color: #e0e6ed;
-      overflow-x: hidden;
-    }
-
-    /* 迷幻風背景動態光暈效果 */
-    .psy-bg {
-      background: radial-gradient(circle at 15% 20%, rgba(255, 0, 128, 0.25) 0%, transparent 45%),
-                  radial-gradient(circle at 85% 80%, rgba(0, 255, 204, 0.25) 0%, transparent 45%),
-                  radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.2) 0%, transparent 60%);
-      background-size: 150% 150%;
-      animation: psyGlow 12s ease infinite alternate;
-    }
-
-    @keyframes psyGlow {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 50% 0%; }
-    }
-
-    /* 炫彩霓虹標題 */
-    .neon-title {
-      font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
-      background: linear-gradient(135deg, #ff007f, #00f3ff, #39ff14);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
-    }
-
-    /* 玻璃擬態科技感控制卡片 */
-    .glass-card {
-      background: rgba(22, 11, 41, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 243, 255, 0.2);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5),
-                  inset 0 0 15px rgba(255, 0, 128, 0.1);
-    }
-
-    /* 霓虹邊框發光 */
-    .neon-border {
-      border: 2px solid #00f3ff;
-      box-shadow: 0 0 10px #00f3ff, inset 0 0 10px rgba(0, 243, 255, 0.3);
-    }
-
-    /* 滑桿 (Range) 自訂迷幻造型 */
-    input[type=range] {
-      -webkit-appearance: none;
-      background: rgba(255, 255, 255, 0.1);
-      height: 8px;
-      border-radius: 4px;
-      outline: none;
-    }
-
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #39ff14;
-      box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
-      cursor: pointer;
-      transition: transform 0.1s ease;
-    }
-
-    input[type=range]::-webkit-slider-thumb:hover {
-      transform: scale(1.2);
-    }
-
-    /* 迷幻脈動下載按鈕特效 */
-    .cyber-btn {
-      position: relative;
-      background: linear-gradient(90deg, #ff007f, #7928ca, #00f3ff);
-      background-size: 200% 100%;
-      transition: all 0.4s ease;
-      font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
-    }
-
-    .cyber-btn:hover {
-      background-position: 100% 0;
-      box-shadow: 0 0 25px rgba(0, 243, 255, 0.8), 0 0 10px rgba(255, 0, 128, 0.8);
-      transform: translateY(-2px);
-    }
-
-    /* 預覽區內的迷因文字基礎樣式 */
-    .meme-text {
-      font-family: 'Impact', 'Anton', 'Black Han Sans', sans-serif;
-      text-transform: uppercase;
-      word-break: break-word;
-      line-height: 1.1;
-      pointer-events: none; /* 防止文字干擾選取 */
-      user-select: none;
-    }
-  </style>
-</head>
-<body class="psy-bg min-h-screen py-6 px-4 md:px-8 flex flex-col justify-between">
-
-  <header class="text-center mb-6">
-    <h1 class="neon-title text-3xl md:text-5xl font-extrabold tracking-wider mb-2">
-      🌀 迷幻迷因產生器 🌀
-    </h1>
-    <p class="text-xs md:text-sm text-cyan-300 opacity-80 tracking-widest uppercase">
-      Psychedelic Meme Studio • Create, Customize & Download
-    </p>
-  </header>
-
-  <main class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楊凱婷 Kate | Web作品集入口網</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ==================== 左側：控制面板區 (5 欄) ==================== -->
-    <section class="lg:col-span-5 glass-card rounded-2xl p-5 md:p-7 space-y-5">
-      
-      <div class="border-b border-cyan-500/30 pb-3">
-        <h2 class="text-xl font-bold text-cyan-400 flex items-center gap-2">
-          <span>⚙️</span> 控制儀表板
-        </h2>
-      </div>
-
-      <!-- 1. 上傳底圖 -->
-      <div class="space-y-2">
-        <label class="block text-sm font-semibold text-pink-400">
-          📷 步驟 1: 上傳圖片 (本機圖檔)
-        </label>
-        <div class="relative">
-          <input 
-            type="file" 
-            id="image-input" 
-            accept="image/*" 
-            class="hidden" 
-          />
-          <button 
-            type="button" 
-            onclick="document.getElementById('image-input').click()" 
-            class="w-full py-3 px-4 rounded-xl border border-dashed border-cyan-400/60 bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-200 text-sm font-medium transition duration-200 flex items-center justify-center gap-2 group"
-          >
-            <svg class="w-5 h-5 text-cyan-400 group-hover:scale-110 transition duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            選擇本機照片...
-          </button>
-        </div>
-      </div>
-
-      <!-- 2. 上下方文字輸入 -->
-      <div class="space-y-4">
-        <div>
-          <label for="top-text-input" class="block text-xs font-semibold text-cyan-300 uppercase mb-1">
-            頂部文字 (Top Text)
-          </label>
-          <input 
-            type="text" 
-            id="top-text-input" 
-            placeholder="當你寫 Code 一次就過的瞬間..." 
-            value="WHEN CODE WORKS ON FIRST TRY" 
-            class="w-full px-4 py-2.5 rounded-lg bg-slate-900/80 border border-purple-500/50 focus:border-cyan-400 focus:outline-none text-white text-sm transition"
-          />
-        </div>
-
-        <div>
-          <label for="bottom-text-input" class="block text-xs font-semibold text-pink-300 uppercase mb-1">
-            底部文字 (Bottom Text)
-          </label>
-          <input 
-            type="text" 
-            id="bottom-text-input" 
-            placeholder="但你根本不知道為甚麼..." 
-            value="BUT YOU HAVE NO IDEA WHY" 
-            class="w-full px-4 py-2.5 rounded-lg bg-slate-900/80 border border-purple-500/50 focus:border-pink-400 focus:outline-none text-white text-sm transition"
-          />
-        </div>
-      </div>
-
-      <!-- 3. 文字色彩與描邊設定 -->
-      <div class="grid grid-cols-2 gap-4 bg-purple-950/30 p-3 rounded-xl border border-purple-800/40">
-        <div>
-          <label for="text-color" class="block text-xs text-cyan-300 mb-1">🎨 文字顏色</label>
-          <input type="color" id="text-color" value="#ffffff" class="w-full h-9 rounded bg-transparent cursor-pointer">
-        </div>
-        <div>
-          <label for="stroke-color" class="block text-xs text-pink-300 mb-1">🖌️ 描邊顏色</label>
-          <input type="color" id="stroke-color" value="#000000" class="w-full h-9 rounded bg-transparent cursor-pointer">
-        </div>
-      </div>
-
-      <!-- 4. 滑桿參數調校區 -->
-      <div class="space-y-4 pt-2">
-        <!-- 字體大小 -->
-        <div>
-          <div class="flex justify-between text-xs text-cyan-300 font-semibold mb-1">
-            <span>🔤 字體大小 (Font Size)</span>
-            <span id="font-size-val" class="text-lime-400">42px</span>
-          </div>
-          <input type="range" id="font-size-slider" min="16" max="90" value="42" class="w-full">
-        </div>
-
-        <!-- 頂部文字垂直偏移 -->
-        <div>
-          <div class="flex justify-between text-xs text-cyan-300 font-semibold mb-1">
-            <span>⬆️ 頂部文字位置 (Top Offset)</span>
-            <span id="top-offset-val" class="text-lime-400">5%</span>
-          </div>
-          <input type="range" id="top-offset-slider" min="0" max="45" value="5" class="w-full">
-        </div>
-
-        <!-- 底部文字垂直偏移 -->
-        <div>
-          <div class="flex justify-between text-xs text-pink-300 font-semibold mb-1">
-            <span>⬇️ 底部文字位置 (Bottom Offset)</span>
-            <span id="bottom-offset-val" class="text-lime-400">5%</span>
-          </div>
-          <input type="range" id="bottom-offset-slider" min="0" max="45" value="5" class="w-full">
-        </div>
-
-        <!-- 旋轉角度 -->
-        <div>
-          <div class="flex justify-between text-xs text-purple-300 font-semibold mb-1">
-            <span>🔄 文字傾斜角度 (Rotate)</span>
-            <span id="rotate-val" class="text-lime-400">0°</span>
-          </div>
-          <input type="range" id="rotate-slider" min="-25" max="25" value="0" class="w-full">
-        </div>
-      </div>
-
-      <!-- 5. 一鍵下載按鈕 -->
-      <div class="pt-4">
-        <button 
-          id="download-btn" 
-          class="cyber-btn w-full py-3.5 px-6 rounded-xl font-bold text-white text-base tracking-wider uppercase flex items-center justify-center gap-3 shadow-lg cursor-pointer"
-        >
-          <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-          </svg>
-          一鍵下載高畫質迷因 (PNG)
-        </button>
-      </div>
-
-    </section>
-
-    <!-- ==================== 右側：迷因即時預覽區 (7 欄) ==================== -->
-    <section class="lg:col-span-7 flex flex-col items-center justify-center">
-      
-      <div class="text-center mb-3">
-        <span class="text-xs text-cyan-300/70 font-mono tracking-widest uppercase">
-          ✦ Live Preview Window ✦
-        </span>
-      </div>
-
-      <!-- 迷因預覽容器 (將被 html2canvas 擷取的目標區塊) -->
-      <div 
-        id="meme-preview" 
-        class="relative w-full max-w-[550px] aspect-square rounded-2xl overflow-hidden neon-border bg-slate-950 flex items-center justify-center shadow-2xl select-none"
-      >
-        <!-- 預設底圖/上傳圖片顯示元素 -->
-        <img 
-          id="meme-image" 
-          src="" 
-          alt="Meme Preview" 
-          class="w-full h-full object-contain"
-        />
-
-        <!-- 迷因上方文字 -->
-        <div 
-          id="meme-text-top" 
-          class="meme-text absolute w-[90%] text-center left-1/2 -translate-x-1/2 font-black tracking-wider leading-tight"
-          style="top: 5%; color: #ffffff;"
-        >
-          WHEN CODE WORKS ON FIRST TRY
-        </div>
-
-        <!-- 迷因下方文字 -->
-        <div 
-          id="meme-text-bottom" 
-          class="meme-text absolute w-[90%] text-center left-1/2 -translate-x-1/2 font-black tracking-wider leading-tight"
-          style="bottom: 5%; color: #ffffff;"
-        >
-          BUT YOU HAVE NO IDEA WHY
-        </div>
-
-        <!-- 初始無圖片時的提示文字 -->
-        <div id="upload-placeholder" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/90 text-center p-6 space-y-3">
-          <div class="text-5xl animate-pulse">🛸</div>
-          <p class="text-cyan-300 text-sm font-medium">請在左側點擊「上傳圖片」選擇底圖</p>
-          <p class="text-xs text-slate-400">（將自動顯示於此迷幻預覽視窗內）</p>
-        </div>
-
-      </div>
-
-      <p class="text-xs text-slate-400 mt-4 text-center">
-        💡 提示：調整左側參數可即時檢視效果，點擊下載按鈕即可儲存專屬迷因！
-      </p>
-
-    </section>
-
-  </main>
-
-  <!-- 頁腳 Footer -->
-  <footer class="text-center text-xs text-purple-400/60 py-2">
-    Designed with Cyber-Psychedelic Style • Powered by HTML5 Canvas & Tailwind
-  </footer>
-
-  <script>
-    // 頁面載入完成後執行主邏輯
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // ==================== 1. 取得 DOM 元素引用 ====================
-      const imageInput = document.getElementById('image-input');
-      const memeImage = document.getElementById('meme-image');
-      const uploadPlaceholder = document.getElementById('upload-placeholder');
-
-      const topTextInput = document.getElementById('top-text-input');
-      const bottomTextInput = document.getElementById('bottom-text-input');
-
-      const memeTextTop = document.getElementById('meme-text-top');
-      const memeTextBottom = document.getElementById('meme-text-bottom');
-
-      const textColorInput = document.getElementById('text-color');
-      const strokeColorInput = document.getElementById('stroke-color');
-
-      const fontSizeSlider = document.getElementById('font-size-slider');
-      const topOffsetSlider = document.getElementById('top-offset-slider');
-      const bottomOffsetSlider = document.getElementById('bottom-offset-slider');
-      const rotateSlider = document.getElementById('rotate-slider');
-
-      const fontSizeVal = document.getElementById('font-size-val');
-      const topOffsetVal = document.getElementById('top-offset-val');
-      const bottomOffsetVal = document.getElementById('bottom-offset-val');
-      const rotateVal = document.getElementById('rotate-val');
-
-      const downloadBtn = document.getElementById('download-btn');
-      const memePreview = document.getElementById('meme-preview');
-
-      // ==================== 2. 建立預設迷因圖 (畫布產生預設貓咪圖案) ====================
-      function createDefaultPlaceholderImage() {
-        const canvas = document.createElement('canvas');
-        canvas.width = 600;
-        canvas.height = 600;
-        const ctx = canvas.getContext('2d');
-
-        // 畫迷幻色彩背景
-        const grad = ctx.createLinearGradient(0, 0, 600, 600);
-        grad.addColorStop(0, '#1a0033');
-        grad.addColorStop(0.5, '#400080');
-        grad.addColorStop(1, '#001a33');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, 600, 600);
-
-        // 畫一個簡易霓虹圖案
-        ctx.strokeStyle = '#00f3ff';
-        ctx.lineWidth = 6;
-        ctx.beginPath();
-        ctx.arc(300, 280, 120, 0, Math.PI * 2);
-        ctx.stroke();
-
-        ctx.fillStyle = '#ff007f';
-        ctx.font = '70px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('🐱', 300, 305);
-
-        // 載入預設繪製好的圖片
-        memeImage.src = canvas.toDataURL();
-        uploadPlaceholder.style.display = 'none';
-      }
-
-      // 預設執行一次生成預設圖
-      createDefaultPlaceholderImage();
-
-      // ==================== 3. 本機圖片上傳 (FileReader API 避開 CORS 錯誤) ====================
-      imageInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          // 使用 FileReader 讀取使用者電腦圖片
-          const reader = new FileReader();
-
-          reader.onload = function(event) {
-            memeImage.src = event.target.result; // 設定成 Base64 Data URL
-            uploadPlaceholder.style.display = 'none'; // 隱藏上傳提示
-          };
-
-          reader.readAsDataURL(file); // 讀取為 DataURL
+    <style>
+        /* ==========================================================================
+           1. CSS RESET & GLOBAL VARIABLES
+           ========================================================================== */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 40%, #e0e7ff 100%);
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --accent: #38bdf8;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.82);
+            --card-border: rgba(255, 255, 255, 0.9);
+            --shadow-soft: 0 15px 35px -5px rgba(14, 165, 233, 0.12), 0 8px 20px -6px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 40px -5px rgba(14, 165, 233, 0.25), 0 12px 25px -6px rgba(0, 0, 0, 0.08);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
         }
-      });
 
-      // ==================== 4. 文字與視覺樣式即時更新函數 ====================
-      function updateMemeText() {
-        // 更新上方與下方文字內容
-        memeTextTop.textContent = topTextInput.value || '';
-        memeTextBottom.textContent = bottomTextInput.value || '';
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Noto Sans TC', sans-serif;
+        }
 
-        // 更新字體大小
-        const fontSize = fontSizeSlider.value;
-        memeTextTop.style.fontSize = `${fontSize}px`;
-        memeTextBottom.style.fontSize = `${fontSize}px`;
-        fontSizeVal.textContent = `${fontSize}px`;
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-dark);
+            padding: 40px 20px 80px;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-        // 更新垂直偏移量 Top / Bottom
-        const topOffset = topOffsetSlider.value;
-        const bottomOffset = bottomOffsetSlider.value;
-        memeTextTop.style.top = `${topOffset}%`;
-        memeTextBottom.style.bottom = `${bottomOffset}%`;
-        topOffsetVal.textContent = `${topOffset}%`;
-        bottomOffsetVal.textContent = `${bottomOffset}%`;
+        /* Ambient floating background elements */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
 
-        // 更新旋轉角度
-        const angle = rotateSlider.value;
-        memeTextTop.style.transform = `translateX(-50%) rotate(${angle}deg)`;
-        memeTextBottom.style.transform = `translateX(-50%) rotate(${angle}deg)`;
-        rotateVal.textContent = `${angle}°`;
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 18s infinite alternate ease-in-out;
+        }
 
-        // 更新顏色與黑邊效果 (text-shadow 多重重疊繪製高品質粗邊框)
-        const textColor = textColorInput.value;
-        const strokeColor = strokeColorInput.value;
+        .blob-1 {
+            width: 450px;
+            height: 450px;
+            background: #bae6fd;
+            top: -100px;
+            left: -100px;
+        }
 
-        memeTextTop.style.color = textColor;
-        memeTextBottom.style.color = textColor;
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: #c7d2fe;
+            bottom: -150px;
+            right: -100px;
+            animation-delay: -7s;
+        }
 
-        // 利用高密度 text-shadow 生成銳利描邊 (強於 -webkit-text-stroke 在各平台的相容度)
-        const shadowStyle = `
-          -2px -2px 0 ${strokeColor},  
-           2px -2px 0 ${strokeColor},
-          -2px  2px 0 ${strokeColor},
-           2px  2px 0 ${strokeColor},
-          -3px  0px 0 ${strokeColor},
-           3px  0px 0 ${strokeColor},
-           0px -3px 0 ${strokeColor},
-           0px  3px 0 ${strokeColor},
-           0px  4px 10px rgba(0,0,0,0.8)
-        `;
-
-        memeTextTop.style.textShadow = shadowStyle;
-        memeTextBottom.style.textShadow = shadowStyle;
-      }
-
-      // ==================== 5. 綁定所有控制控制項的事件監聽器 ====================
-      // 輸入框即時監聽 (input event)
-      topTextInput.addEventListener('input', updateMemeText);
-      bottomTextInput.addEventListener('input', updateMemeText);
-
-      // 色彩選擇器監聽
-      textColorInput.addEventListener('input', updateMemeText);
-      strokeColorInput.addEventListener('input', updateMemeText);
-
-      // 滑桿控制監聽
-      fontSizeSlider.addEventListener('input', updateMemeText);
-      topOffsetSlider.addEventListener('input', updateMemeText);
-      bottomOffsetSlider.addEventListener('input', updateMemeText);
-      rotateSlider.addEventListener('input', updateMemeText);
-
-      // 初始化一次文字狀態
-      updateMemeText();
-
-      // ==================== 6. html2canvas 高畫質一鍵截圖下載 ====================
-      downloadBtn.addEventListener('click', () => {
-        // 按鈕點擊視覺反饋
-        const originalText = downloadBtn.innerHTML;
-        downloadBtn.innerHTML = `⏳ 正在產生高清迷因中...`;
-        downloadBtn.style.opacity = '0.7';
-
-        // 使用 html2canvas 套件轉繪圖片區塊
-        html2canvas(memePreview, {
-          scale: 3, // 放大 3 倍高解析度繪製，確保下載檔極度清晰
-          useCORS: true, // 支援跨域
-          allowTaint: true,
-          backgroundColor: null // 保持透明底色
-        }).then(canvas => {
-          // 將產生的 canvas 轉為下載連結
-          const link = document.createElement('a');
-          link.download = 'my-psychedelic-meme.png'; // 下載的檔名
-          link.href = canvas.toDataURL('image/png'); // 取得 PNG Base64 數據
-          link.click(); // 觸發下載
-
-          // 恢復按鈕狀態
-          downloadBtn.innerHTML = originalText;
-          downloadBtn.style.opacity = '1';
-        }).catch(err => {
-          console.error("截圖下載失敗:", err);
-          alert("下載圖片時發生錯誤，請重試！");
-          downloadBtn.innerHTML = originalText;
-          downloadBtn.style.opacity = '1';
-        });
-      });
-
-    });
-  </script>
-</body>
-</html>
+        @keyframes float
