@@ -85,4 +85,580 @@
             animation-delay: -7s;
         }
 
-        @keyframes float
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(60px, 40px) scale(1.08); }
+            100% { transform: translate(-40px, 80px) scale(0.95); }
+        }
+
+        /* Container Layout */
+        .main-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==========================================================================
+           2. HEADER & PROFILE CARD
+           ========================================================================== */
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-xl);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .profile-card:hover .avatar-img {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            background: #0284c7;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-name {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-bio {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .profile-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .btn-email {
+            background: #0284c7;
+            color: white;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+            opacity: 0.95;
+        }
+
+        /* Progress Bar Section */
+        .progress-box {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            padding: 14px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 18.75%; /* 3/16 */
+            background: linear-gradient(90deg, #38bdf8, #0284c7);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* ==========================================================================
+           3. 16 WEEKS GRID MENU
+           ========================================================================== */
+        .grid-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .grid-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .weeks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .week-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            color: inherit;
+            min-height: 170px;
+            overflow: hidden;
+        }
+
+        /* Active Unlocked Card */
+        .week-card.unlocked {
+            background: linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(240, 249, 255, 0.9) 100%);
+            border: 1.5px solid rgba(56, 189, 248, 0.4);
+            cursor: pointer;
+        }
+
+        .week-card.unlocked:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .week-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        .unlocked .week-badge {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .unlocked .card-footer {
+            color: var(--primary);
+        }
+
+        .arrow-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+
+        .week-card.unlocked:hover .arrow-icon {
+            transform: translateX(4px);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Locked Card */
+        .week-card.locked {
+            background: rgba(241, 245, 249, 0.6);
+            border: 1px dashed #cbd5e1;
+            opacity: 0.75;
+            cursor: not-allowed;
+        }
+
+        .week-card.locked:hover {
+            animation: wiggle 0.4s ease-in-out;
+            opacity: 0.9;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-4px) rotate(-1deg); }
+            40% { transform: translateX(4px) rotate(1deg); }
+            60% { transform: translateX(-2px); }
+            80% { transform: translateX(2px); }
+        }
+
+        .locked .week-badge {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .locked .card-title {
+            color: #94a3b8;
+        }
+
+        .locked-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 640px) {
+            body { padding: 20px 12px 60px; }
+            .profile-card { padding: 30px 20px; }
+            .weeks-grid { grid-template-columns: 1fr; }
+            .profile-name { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient background blobs -->
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="main-wrapper">
+        <!-- 1. Header Profile Card -->
+        <header class="profile-card">
+            <div class="avatar-wrapper">
+                <img src="https://i.postimg.cc/1Vrh2cCQ/image.jpg" alt="楊凱婷 Kate" class="avatar-img">
+                <div class="avatar-badge"><i class="fa-solid fa-code"></i></div>
+            </div>
+            
+            <h1 class="profile-name">楊凱婷 Kate</h1>
+            <p class="profile-bio">🍳 一個充滿想像力的廚師 | 網頁程式設計作品集</p>
+
+            <div class="profile-actions">
+                <a href="https://www.instagram.com/likekate1012/" target="_blank" class="social-btn btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="mailto:likekate1012@gmail.com?cc=s26122135@stu.edu.tw" class="social-btn btn-email">
+                    <i class="fa-regular fa-envelope"></i> Email 我
+                </a>
+            </div>
+
+            <div class="progress-box">
+                <div class="progress-header">
+                    <span><i class="fa-solid fa-trophy" style="color: #f59e0b;"></i> 課程闖關進度</span>
+                    <span>3 / 16 關卡 (18.75%)</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. Grid Section Header -->
+        <div class="grid-header">
+            <h2 class="grid-title">
+                <i class="fa-solid fa-compass" style="color: #0284c7;"></i> 每週作品選單
+            </h2>
+        </div>
+
+        <!-- 3. 16 Weeks Grid -->
+        <main class="weeks-grid">
+            <!-- Week 1 -->
+            <a href="w1/index.html" class="week-card unlocked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-circle-check"></i> Week 01
+                    </div>
+                    <h3 class="card-title">Week 1 - 數位名片</h3>
+                </div>
+                <div class="card-footer">
+                    <span>點擊進入作業</span>
+                    <div class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Week 2 -->
+            <a href="w2/index.html" class="week-card unlocked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-circle-check"></i> Week 02
+                    </div>
+                    <h3 class="card-title">Week 2 - 今天吃甚麼?</h3>
+                </div>
+                <div class="card-footer">
+                    <span>點擊進入作業</span>
+                    <div class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Week 3 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 03
+                    </div>
+                    <h3 class="card-title">Week 3 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 4 (Unlocked: 悄悄話) -->
+            <a href="w4/index.html" class="week-card unlocked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-circle-check"></i> Week 04
+                    </div>
+                    <h3 class="card-title">Week 4 - 悄悄話</h3>
+                </div>
+                <div class="card-footer">
+                    <span>點擊進入作業</span>
+                    <div class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Week 5 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 05
+                    </div>
+                    <h3 class="card-title">Week 5 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 6 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 06
+                    </div>
+                    <h3 class="card-title">Week 6 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 7 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 07
+                    </div>
+                    <h3 class="card-title">Week 7 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 8 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 08
+                    </div>
+                    <h3 class="card-title">Week 8 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 9 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 9
+                    </div>
+                    <h3 class="card-title">Week 9 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 10 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 10
+                    </div>
+                    <h3 class="card-title">Week 10 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 11 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 11
+                    </div>
+                    <h3 class="card-title">Week 11 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 12 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 12
+                    </div>
+                    <h3 class="card-title">Week 12 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 13 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 13
+                    </div>
+                    <h3 class="card-title">Week 13 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 14 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 14
+                    </div>
+                    <h3 class="card-title">Week 14 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 15 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 15
+                    </div>
+                    <h3 class="card-title">Week 15 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+
+            <!-- Week 16 (Locked) -->
+            <div class="week-card locked">
+                <div>
+                    <div class="week-badge">
+                        <i class="fa-solid fa-lock"></i> Week 16
+                    </div>
+                    <h3 class="card-title">Week 16 - 關卡尚未開啟</h3>
+                </div>
+                <div class="card-footer">
+                    <span class="locked-tag">🔒 未解鎖</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
